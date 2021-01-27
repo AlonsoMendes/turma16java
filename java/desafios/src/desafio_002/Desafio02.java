@@ -1,6 +1,6 @@
 package desafio_002;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Desafio02 
 {
@@ -21,8 +21,8 @@ public class Desafio02
 			System.out.printf("A seguencia é %d, %d, %d", c , b , a);
 		}
 		else if(b >  a && a > c) {
-			System.out.printf("A seguencia é %d, %d, %d", c , a , b);
-		}
+				System.out.printf("A seguencia é %d, %d, %d", c , a , b);
+			}
 		else if(a > b && c > b) {
 			System.out.printf("A seguencia é %d, %d, %d", b , c , a);
 
@@ -33,9 +33,13 @@ public class Desafio02
 			else {
 				System.out.printf("A seguencia é %d, %d, %d", a , c , b);
 			}
-		}else {
+		}
+		if(b > a && b > c) {
+			System.out.printf("A seguencia é %d, %d, %d", a , c , b);
+			}
+		else
+		{
 			System.out.printf("A seguencia é %d, %d, %d", b , a , c);
 		}
-			
 	}
 }
