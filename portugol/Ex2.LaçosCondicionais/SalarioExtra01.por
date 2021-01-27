@@ -3,7 +3,7 @@ programa
 	
 	funcao inicio()
 	{	
-		inteiro c, n, salario, extra
+		inteiro c, n, salario = 0, extra
 		
 		escreva("Escreva seu codigo: ")
 		leia(c)
@@ -11,7 +11,7 @@ programa
 		leia(n)
 		limpa()
 
-		salario = n * 10
+		//salario = n * 10
 		
 		se (n > 50)
 		{	
@@ -31,7 +31,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 172; 
+ * @POSICAO-CURSOR = 61; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
