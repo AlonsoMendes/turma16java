@@ -8,38 +8,30 @@ public class Desafio02
 		
 		Scanner ler = new Scanner(System.in);
 				
-		int a, b,c;
-		
-		System.out.print("Digite o primeiro numero: ");
-		a = ler.nextInt();
-		System.out.print("Digite o segundo numero: ");
-		b = ler.nextInt();
-		System.out.print("Digite o terceiro numero: ");
-		c = ler.nextInt();
-		
-		if(a >  b && b > c) {
-			System.out.printf("A seguencia é %d, %d, %d", c , b , a);
-		}
-		else if(b >  a && a > c) {
-				System.out.printf("A seguencia é %d, %d, %d", c , a , b);
-			}
-		else if(a > b && c > b) {
-			System.out.printf("A seguencia é %d, %d, %d", b , c , a);
+		int A,B,C, maior = 0, menor = 0, meio = 0;
 
-		}else if (c > a && b > a){
-			if(c > b) {
-				System.out.printf("A seguencia é %d, %d, %d", a , b , c);
-			}
-			else {
-				System.out.printf("A seguencia é %d, %d, %d", a , c , b);
-			}
+		System.out.print("Digite um valor inteiro: ");
+		A = ler.nextInt();
+		System.out.print("Digite outro valor inteiro: ");
+		B = ler.nextInt();
+		if(B > A) { //SE B FOR MAIOR QUE A ENTAO B SERA O MAIOR VALOR E A O MENOR
+			maior = B;
+			menor = A;
+		}else {  // SE NÃO A SERÁ O MAIOR VALOR E B O MENOR
+			maior = A;
+			menor = B;
 		}
-		if(b > a && b > c) {
-			System.out.printf("A seguencia é %d, %d, %d", a , c , b);
-			}
-		else
-		{
-			System.out.printf("A seguencia é %d, %d, %d", b , a , c);
+		System.out.print("Digite o último valor inteiro: ");
+		C = ler.nextInt();
+		if(C > maior) { // SE C FOR MAIOR QUE O MAIOR VALOR, ELE PASSA A SER O MAIOR VALOR E O ANTIGO MAIOR VALOR FICA NO MEIO 
+			meio = maior;
+			maior = C;
+		} else if(C <= menor){ // SE C FOR MENOR QUE O MENOR, O MENOR VIRA O MEIO E O C PASSA A SER O MENOR VALOR
+			meio = menor;
+			menor = C;
+		} else { // SE C FOR MAIOR QUE O MENOR ELE FICA NO MEIO	
+			C = meio;			
 		}
+		System.out.printf("Ordem crescente é %d, %d, %d.",menor, meio, maior);
 	}
 }
