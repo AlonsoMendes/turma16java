@@ -1,7 +1,7 @@
  /* Crie um programa que leia um número do teclado até que encontre
    um número igual a zero. No final, mostre a soma dos números digitados.*/
 
-package desafio_003;
+package desafio03_LacosRepeticao;
 
 import java.util.*;
 

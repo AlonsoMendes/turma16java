@@ -1,4 +1,4 @@
-package desafio_003;
+package desafio03_LacosRepeticao;
 
 import java.util.Scanner;
 

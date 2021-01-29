@@ -10,7 +10,7 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro N1[4][6], N2[4][6], M1[4][6], M2[4][6]
+		inteiro N1[2][2], N2[2][2], M1[2][2], M2[2][2]
 
 		para(inteiro x=0; x < 2; x++)
 		{
@@ -25,7 +25,7 @@ programa
 		{
 			para(inteiro y=0; y < 2; y++)
 			{
-				escreva("Digite valor n1:")
+				escreva("Digite valor n2:")
 				leia(N2[x][y])
 			}
 		}
@@ -57,9 +57,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 407; 
+ * @POSICAO-CURSOR = 611; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {N1, 13, 10, 2}-{N2, 13, 20, 2}-{M1, 13, 30, 2}-{M2, 13, 40, 2};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
