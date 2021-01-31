@@ -56,8 +56,6 @@ public class Exercicio03_SomaeSubtracao {
 				System.out.printf("\t %d \t",M2[x][y]);
 			}
 			System.out.println();
-		}
-			
+		}		
 	}
-
 }
