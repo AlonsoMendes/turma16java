@@ -10,6 +10,8 @@ public class ContaPoupanca {
 		double saldoFinal = 0.0, valor = 0.0, debito;
 		char selecao, opcao, movimento,opcao2;
 		
+		
+		
 		System.out.println("\t\t###CONTA POUPANÇA###");
         System.out.println();
         
@@ -23,6 +25,8 @@ public class ContaPoupanca {
 			{
 				System.out.print("Digite o valor para débito: ");
 				debito = leia.nextDouble();
+				
+				
 				if (saldoFinal>0)
 				{
 					while (saldoFinal < debito)
@@ -31,7 +35,7 @@ public class ContaPoupanca {
 						System.out.print("Digite o valor para débito: ");
 						debito = leia.nextDouble();
 					}
-					saldoFinal = valor - debito;
+					saldoFinal -= debito;
 					System.out.printf("Saldo atual é R$ %.2f \n", saldoFinal);
 				}
 				else if (saldoFinal == 0)
