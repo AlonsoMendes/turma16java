@@ -4,24 +4,39 @@ import java.util.*;
 
 public class Loja {
 	
-	static Scanner leia = new Scanner(System.in);
-	static String codigo[] = new String[10];
-	static String produtosnaloja[] = { "FinalFantasy", "CS", "Call of Duty", "Pokemon", "Castlevania",
-			"League of Legends", "MU- Online", "GTAV", "Mortal Kombat", "Free Fire" };
-	static double preconoproduto[] = { 30.00, 10.00, 20.00, 20.00, 50.00, 10.00, 10.00, 30.00, 50.00, 10.00 };
-	static int estoque[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
+	
 	public static void main(String[] args) {
-		String nomedoUsuario = " ", sexo = " ";
-		char sexodoUsuario;
 		
-		System.out.println(
-				"**************************************************************************************************************************************************");
-		System.out.println("LOJA BOA");
-		System.out.println("É BOA MESMO");
-		System.out.println(
-				"**************************************************************************************************************************************************");
-		System.out.println("Obrigada pela escolha da loja");
-		// catalogo
+		Scanner leia = new Scanner(System.in);
+		
+		String codigo[] = new String[10];
+		String produtosnaloja[] = { "FinalFantasy", "CS", "Call of Duty", "Pokemon", "Castlevania", "League of Legends",
+				"MU- Online", "GTAV", "Mortal Kombat", "Free Fire" };
+		double preconoproduto[] = { 30.00, 10.00, 20.00, 20.00, 50.00, 10.00, 10.00, 30.00, 50.00, 10.00 };
+		int estoque[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
+		
+		String codigos = " ", mesmoCodigo[] = { "", "", "", "", "", "", "", "", "", "" };
+		String sexodaPessoa = null;
+		String nomedaPessoa = null;
+		System.out.println("\t\t\t\t\t\t\t*******************");
+		String nomedoUsuario = " ", sexo = " ";
+
+		char sexodoUsuario;
+		char opcao = 'S', opcaoCupom = 'S';
+		int opcao1 = 0;
+
+		int quantidadeEstoque = 0;
+		double somaTotal = 0, imposto;
+		int quantidadeEstoqueM = 0;
+		int novoEstoque[] = new int[10];
+		
+		
+		System.out.println("\t\t\t\t\t\t\t**************************");
+		System.out.println("\t\t\t\t\t\t\t*    LOJA GAMMING BOA    *");
+		System.out.println("\t\t\t\t\t\t\t*      É BOA MESMO       *");
+		System.out.println("\t\t\t\t\t\t\t*************************");
+		System.out.println("\t\t\t\t\t\t    OBRIGADA PELA ESCOLHA DA LOJA");
+		                                     // catalogo
 		System.out.println(
 				"**************************************************************************************************************************************************");
 		System.out.println("Codigo\t\t\t\t Estoque\t\t\t\t Valor \t\t\t\t Descriçao do Produto");
@@ -35,12 +50,12 @@ public class Loja {
 		}
 		do {
 			System.out.println("1 - Realize eu cadastro\r\n" + "2 - Carrinho\r\n" + "3 - Sair \r\n");
-			System.out.print("Digite o numero de sua opção: ");
-			int opcao = leia.nextInt();
 			
-			if (opcao == 3) {
-				break;
-			} else if (opcao == 1) {
+			do {
+			System.out.print("Digite o numero de sua opção: ");
+			opcao1 = leia.nextInt();
+			
+				if (opcao1 == 1) {
 				leia.nextLine();
 				System.out.println("Qual seu nome? ");
 				nomedoUsuario = leia.nextLine();
@@ -61,32 +76,27 @@ public class Loja {
 					System.out.println("Olá especial  " + nomedoUsuario + "\nNossa Loja de Games, confira nossos produtos ");
 					sexo = "Srx";
 				}
-			} else if (opcao == 2) {
-				Carrinho(nomedoUsuario,sexo);
+			} else if (opcao1 == 2) {
+
+				System.out.println("Informe o codigo do produto desejado :");
+				codigos = leia.nextLine().toUpperCase();
+				break;
 			}
+			else if (opcao1 == 3) {
+				break;
+			}
+			else {
+				System.out.println("Opção invalida. Digite novamente uma opção:");
+			}
+					
 		} while (true);
-		System.out.println("Volte sempre!!");
-	}
-	
-	public static void Carrinho(String nomedaPessoa, String sexodaPessoa) {
-		char opcao = 'S', opcaoCupom = 'S';
-		String codigos = " ", mesmoCodigo[] = { "", "", "", "", "", "", "", "", "", "" };
-		int quantidadeEstoque = 0;
-		double somaTotal = 0, imposto;
-		int quantidadeEstoqueM = 0;
-		int novoEstoque[] = new int[10];
 		
-		
-		do {
 		for (int i = 0; i < 10; i++) {
 			novoEstoque[i] = estoque[i];
 		}
-		
 		while (opcao == 'S') {
-			leia.nextLine();
-			System.out.println("Informe o codigo do produto desejado :");
-			codigos = leia.nextLine().toUpperCase();
 			for (int i = 0; i < 10; i++) {
+				
 				while (estoque[i] <= 0 && codigos.equals(codigo[i])) {
 					System.out.println("Produto indisponivel, deseja continuar? [S/N]");
 					opcao = leia.nextLine().toUpperCase().charAt(0);
@@ -112,10 +122,10 @@ public class Loja {
 					somaTotal += preconoproduto[i] * quantidadeEstoqueM;
 				}
 			}
-//			for (int i = 0; i < 10; i++) {
-//				System.out.println(codigo[i] + "\t\t\t\t\t" + estoque[i] + "\t\t\t\t\t" + "R$" + preconoproduto[i]
-//						+ "\t\t\t\t\t" + produtosnaloja[i]);
-//			}
+			for (int i = 0; i < 10; i++) {
+				System.out.println(codigo[i] + "\t\t\t\t\t" + estoque[i] + "\t\t\t\t\t" + "R$" + preconoproduto[i]
+						+ "\t\t\t\t\t" + produtosnaloja[i]);
+			}
 			leia.nextLine();
 			System.out.println("deseja comprar mais [s/n]");
 			opcao = leia.nextLine().toUpperCase().charAt(0);
@@ -167,6 +177,7 @@ public class Loja {
 			System.out.println("Obrigada pela escolha da loja");
 			
 			
+
 			System.out.println(sexodaPessoa+" "+nomedaPessoa);
 			for (int i = 0; i < 10; i++) {
 				if (codigo[i].equals(mesmoCodigo[i])) {
