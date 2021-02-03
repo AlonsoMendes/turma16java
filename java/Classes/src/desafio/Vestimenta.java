@@ -1,6 +1,6 @@
 package desafio;
 
-public class Vestimento {
+public class Vestimenta {
 	
 	public static void main(String[] args) {
 		

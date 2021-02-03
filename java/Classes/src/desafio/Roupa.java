@@ -1,10 +1,11 @@
 package desafio;
 
 public class Roupa {
-	
+//Encapsulamento | Atriburo
 	protected String tecido;
 	protected String marca;
 	protected String cor;
+	
 	
 	public Roupa(String tecido, String marca, String cor) {
 		super();
@@ -13,15 +14,18 @@ public class Roupa {
 		this.cor = cor;
 	}
 	
+	//metodo
 	public void vestir() {
 		System.out.println("A roupa foi vestida");
 	}
 
-	public String getTecido() {
+	public String getTecido()//Recupa o valor do Atributo
+	{
 		return tecido;
 	}
 
-	public void setTecido(String tecido) {
+	public void setTecido(String tecido) // Modifica o valor do Atributo
+	{
 		this.tecido = tecido;
 	}
 
