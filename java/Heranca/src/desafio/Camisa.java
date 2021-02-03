@@ -1,12 +1,11 @@
 package desafio;
 
-public class Classe1 extends ClasseGeral {
-
+public class Camisa extends Roupa{
 	private String manga;
 	private String gola;
 	private String estampa;
 	
-	public Classe1(String tecido,String manga,String gola,String estampa, String marca, String cor) {
+	public Camisa(String tecido,String manga,String gola,String estampa, String marca, String cor) {
 		super(tecido, marca, cor);
 		
 		this.manga=manga;

@@ -1,12 +1,12 @@
 package desafio;
 
-public class ClasseGeral {
-
+public class Roupa {
+	
 	protected String tecido;
 	protected String marca;
 	protected String cor;
 	
-	public ClasseGeral(String tecido, String marca, String cor) {
+	public Roupa(String tecido, String marca, String cor) {
 		super();
 		this.tecido = tecido;
 		this.marca = marca;
@@ -41,6 +41,5 @@ public class ClasseGeral {
 		this.cor = cor;
 	}
 
+
 }
-
-

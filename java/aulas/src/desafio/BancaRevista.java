@@ -9,7 +9,7 @@ public class BancaRevista {
 		public static void main(String[] args) {
 			
 			Scanner ler = new Scanner(System.in);
-			Pessoa pessoa = new Pessoa();
+			Pessoa pessoa = new Pessoa(null);
 			
 			
 			System.out.print("Escreva seu nome: ");

@@ -10,7 +10,7 @@ public class CadAmigos {
 
 		Scanner leia =  new Scanner(System.in);
 		
-		Pessoa broder1 = new Pessoa();
+		Pessoa broder1 = new Pessoa(null);
 		
 		System.out.println("Digite o nome: ");
 		broder1.nome = leia.next();
