@@ -5,35 +5,38 @@ import java.util.*;
 public class Teste {
 	
 	public static void main(String[] args) {
-		
-		Scanner ler = new Scanner(System.in);
-		
+		Locale.setDefault(Locale.US);
+		Scanner leia = new Scanner(System.in);
 
-		System.out.print("Digite o nome do funcionario: ");
-		String nome = ler.next();
-		System.out.print("Digite a matricula do funcionario: ");
-		int matricula = ler.nextInt();
-		System.out.print("Digite a quantidade de horas trabalhada: ");
-		int horasTrabalhada = ler.nextInt();
-		System.out.print("Valor por hora: R$ ");
-		double valorPorHora = ler.nextDouble();		
-		System.out.println("Terceiro [S - sim| N- não]: ");
-		char op = ler.next().toUpperCase().charAt(0);
 		
-		if(op == 'S') {
-			System.out.print("Digite o valor do acrescimo do funcionario: ");
-			double acrescimo = ler.nextDouble();
-			Empregado func1 = new Terceiro(nome, matricula, horasTrabalhada, valorPorHora, acrescimo);
-			System.out.printf("Salario com acrescimo %.2f", acrescimo);
+		System.out.print("Digite a matricula :");
+		int matricula = leia.nextInt();
+		leia.nextLine();//limpeza do buffer de teclado
+		System.out.print("Digite o nome :");
+		String nome = leia.nextLine();
+		System.out.print("Digite as horas trabalhadas: ");
+		int horas = leia.nextInt();
+		System.out.print("Digite o valor por hora trabalhada :");
+		double valorHora = leia.nextDouble();
+		System.out.print("Terceiro S/N :");
+		char op = leia.next().toUpperCase().charAt(0);
+		if (op == 'S')
+		{
+			System.out.println("Digite o valor do acrescimo : ");
+			double acrescimo = leia.nextDouble();
+			Empregado func1 = new Terceiro(nome, matricula, horas, valorHora, acrescimo);
+			System.out.println("Matricula:"+func1.getMatricula());
+			System.out.println("Nome :"+func1.getNome());
+			System.out.println("Salario: "+func1.salario());
 			
 		}
-		else {
-			Empregado func1 = new Empregado(nome, matricula, horasTrabalhada, valorPorHora);
-			System.out.printf("Nome: %s ", nome);
-			System.out.printf("Matricula: %d ", matricula);
-			System.out.printf("Horas Trabalhada: %d ", nome);
-			System.out.printf("Valor por Hora: R$ %.2f ", nome);
-			}
+		else if (op =='N')
+		{
+			Empregado func1 = new Empregado(nome, matricula, horas, valorHora);
+			System.out.println("Matricula:"+func1.getMatricula());
+			System.out.println("Nome :"+func1.getNome());
+			System.out.println("Salario: "+func1.salario());
+		}
 	}
 			
 }

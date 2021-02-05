@@ -10,7 +10,7 @@ public class Preguica extends Animal {
 	@Override
 	String movimentacao() {
 		
-		return "Deve correr";
+		return "Deve subir em árvores";
 	}
 	@Override
 	String som() {

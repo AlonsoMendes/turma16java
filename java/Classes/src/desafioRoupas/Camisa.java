@@ -1,4 +1,4 @@
-package desafio;
+package desafioRoupas;
 
 public class Camisa extends Roupa{
 	private String manga;

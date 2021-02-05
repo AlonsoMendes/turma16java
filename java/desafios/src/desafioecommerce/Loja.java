@@ -18,7 +18,6 @@ public class Loja {
 		String codigos = " ", mesmoCodigo[] = { "", "", "", "", "", "", "", "", "", "" };
 		String sexodaPessoa = null;
 		String nomedaPessoa = null;
-		System.out.println("\t\t\t\t\t\t\t*******************");
 		String nomedoUsuario = " ", sexo = " ";
 
 		char sexodoUsuario;

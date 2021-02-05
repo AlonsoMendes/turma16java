@@ -10,9 +10,11 @@ public class Teste {
 		Animal preguica = new Preguica("P", 15);
 		
 		System.out.printf("O som do cachorro: %s", cachorro.som());
+		System.out.printf("\n %s",cachorro.movimentacao());
 		System.out.printf("\nO som do cavalo: %s", cavalo.som());
+		System.out.printf("\n %s",cavalo.movimentacao());
 		System.out.printf("\nO som do preguiça: %s", preguica.som());
-
+		System.out.printf("\n %s",preguica.movimentacao());
 			
 	}
 
