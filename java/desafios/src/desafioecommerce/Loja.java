@@ -1,213 +1,49 @@
 package desafioecommerce;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Loja {
+public class Loja extends Produto
+{
+	public static List<Produto>  listaProduto = new ArrayList<Produto>();
 	
-	
-	public static void main(String[] args) {
-		
-		Scanner leia = new Scanner(System.in);
-		
-		String codigo[] = new String[10];
-		String produtosnaloja[] = { "FinalFantasy", "CS", "Call of Duty", "Pokemon", "Castlevania", "League of Legends",
-				"MU- Online", "GTAV", "Mortal Kombat", "Free Fire" };
-		double preconoproduto[] = { 30.00, 10.00, 20.00, 20.00, 50.00, 10.00, 10.00, 30.00, 50.00, 10.00 };
-		int estoque[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
-		
-		String codigos = " ", mesmoCodigo[] = { "", "", "", "", "", "", "", "", "", "" };
-		String sexodaPessoa = null;
-		String nomedaPessoa = null;
-		String nomedoUsuario = " ", sexo = " ";
+	public Loja(){
+		listaProduto.add(new Produto("FinalFantasy", "LB-001", 30.00, 10));
+		listaProduto.add(new Produto("CS", "LB-002", 10.00, 10));
+		listaProduto.add(new Produto("Call of duty", "LB-003", 20.00, 10));
+		listaProduto.add(new Produto("Pokemon", "LB-004", 20.00, 10));
+		listaProduto.add(new Produto("Castlevania", "LB-005", 50.00, 10));
+		listaProduto.add(new Produto("League of Legends", "LB-006", 10.00, 10));
+		listaProduto.add(new Produto("MU- Online", "LB-007", 10.00, 10));
+		listaProduto.add(new Produto("GTAV", "LB-008", 30.00, 10));
+		listaProduto.add(new Produto("Mortal Kombat", "LB-009", 50.00, 10));
+		listaProduto.add(new Produto("Free Fire", "LB-010", 10.00, 10));
 
-		char sexodoUsuario;
-		char opcao = 'S', opcaoCupom = 'S';
-		int opcao1 = 0;
-
-		int quantidadeEstoque = 0;
-		double somaTotal = 0, imposto;
-		int quantidadeEstoqueM = 0;
-		int novoEstoque[] = new int[10];
-		
-		
-		System.out.println("\t\t\t\t\t\t\t**************************");
-		System.out.println("\t\t\t\t\t\t\t*    LOJA GAMMING BOA    *");
-		System.out.println("\t\t\t\t\t\t\t*      É BOA MESMO       *");
-		System.out.println("\t\t\t\t\t\t\t*************************");
-		System.out.println("\t\t\t\t\t\t    OBRIGADA PELA ESCOLHA DA LOJA");
-		                                     // catalogo
-		System.out.println(
-				"**************************************************************************************************************************************************");
-		System.out.println("Codigo\t\t\t\t Estoque\t\t\t\t Valor \t\t\t\t Descriçao do Produto");
-		System.out.println(
-				"**************************************************************************************************************************************************");
-		System.out.print("\n");
-		for (int i = 0; i < 10; i++) {
-			codigo[i] = "LB-" + (i + 1);
-			System.out.println(codigo[i] + "\t\t\t\t\t" + estoque[i] + "\t\t\t\t\t" + "R$" + preconoproduto[i]
-					+ "\t\t\t\t\t" + produtosnaloja[i]);
-		}
-		do {
-			System.out.println("1 - Realize eu cadastro\r\n" + "2 - Carrinho\r\n" + "3 - Sair \r\n");
-			
-			do {
-			System.out.print("Digite o numero de sua opção: ");
-			opcao1 = leia.nextInt();
-			
-				if (opcao1 == 1) {
-				leia.nextLine();
-				System.out.println("Qual seu nome? ");
-				nomedoUsuario = leia.nextLine();
-				System.out.println("Digite seu sexo? F - Feminino,  M - Masculino, O - Outros)");
-				sexodoUsuario = leia.nextLine().toUpperCase().charAt(0);
-				while (sexodoUsuario != 'F' && sexodoUsuario != 'M' && sexodoUsuario != 'O') {
-					System.out.println("Voce digitou errado ");
-					System.out.println("Digite seu sexo? F - Feminino,  M - Masculino, O - Outros)");
-					sexodoUsuario = leia.nextLine().toUpperCase().charAt(0);
-				}
-				if (sexodoUsuario == 'M') {
-					System.out.println("Olá Sr  " + nomedoUsuario + "\nNossa Loja de Games, confira nossos produtos ");
-					sexo = "Sr";
-				} else if (sexodoUsuario == 'F') {
-					System.out.println("Olá Sra  " + nomedoUsuario + "\nNossa Loja de Games, confira nossos produtos ");
-					sexo = "Sra";
-				} else if (sexodoUsuario == 'O') {
-					System.out.println("Olá especial  " + nomedoUsuario + "\nNossa Loja de Games, confira nossos produtos ");
-					sexo = "Srx";
-				}
-			} else if (opcao1 == 2) {
-
-				System.out.println("Informe o codigo do produto desejado :");
-				codigos = leia.nextLine().toUpperCase();
-				break;
-			}
-			else if (opcao1 == 3) {
-				break;
-			}
-			else {
-				System.out.println("Opção invalida. Digite novamente uma opção:");
-			}
-					
-		} while (true);
-		
-		for (int i = 0; i < 10; i++) {
-			novoEstoque[i] = estoque[i];
-		}
-		while (opcao == 'S') {
-			for (int i = 0; i < 10; i++) {
-				
-				while (estoque[i] <= 0 && codigos.equals(codigo[i])) {
-					System.out.println("Produto indisponivel, deseja continuar? [S/N]");
-					opcao = leia.nextLine().toUpperCase().charAt(0);
-				}
-				if (codigos.equals(codigo[i]) && mesmoCodigo[i].equals("") && estoque[i] > 0) {
-					System.out.println("Voce selecionou " + produtosnaloja[i]);
-					System.out.println("Digite a quantidade do produto selecionado nos temos " + estoque[i]);
-					quantidadeEstoque = leia.nextInt();
-					while (quantidadeEstoque > estoque[i]) {
-						System.out.println("Quantidade insuficiente");
-						System.out.println("Digite a quantidade do produto selecionado nos temos " + estoque[i]);
-						quantidadeEstoque = leia.nextInt();
-					}
-					estoque[i] -= quantidadeEstoque;
-					mesmoCodigo[i] = codigos;
-					somaTotal += preconoproduto[i] * quantidadeEstoque;
-				} else if (codigos.equals(mesmoCodigo[i])) {
-					System.out.println("Esse item ja foi selecionadom deseja altera-lo para?");
-					quantidadeEstoqueM = leia.nextInt();
-					estoque[i] += quantidadeEstoque;
-					estoque[i] -= quantidadeEstoqueM;
-					somaTotal -= preconoproduto[i] * quantidadeEstoque;
-					somaTotal += preconoproduto[i] * quantidadeEstoqueM;
-				}
-			}
-			for (int i = 0; i < 10; i++) {
-				System.out.println(codigo[i] + "\t\t\t\t\t" + estoque[i] + "\t\t\t\t\t" + "R$" + preconoproduto[i]
-						+ "\t\t\t\t\t" + produtosnaloja[i]);
-			}
-			leia.nextLine();
-			System.out.println("deseja comprar mais [s/n]");
-			opcao = leia.nextLine().toUpperCase().charAt(0);
-		}
-		System.out.println("Deseja ver seu carrinho? [S/N]");
-		opcao = leia.nextLine().toUpperCase().charAt(0);
-		if (opcao == 'S') {
-			System.out.println("Os itens selecionados foram :");
-			for (int i = 0; i < 10; i++) {
-				if (codigo[i].equals(mesmoCodigo[i])) {
-					System.out.println(
-							produtosnaloja[i] + "\t \t" + (novoEstoque[i] - estoque[i]) + "\t \t" + preconoproduto[i]);
-				}
-			}
-			System.out.println("O valor total é R$ " + somaTotal);
-		}
-		System.out.println("Qual a forma de pagamento desejada?" + "\n1 - A vista (10% de desconto)"
-				+ "\n2 - Cartão de crédito (1x)" + "\n3 - Cartão de crédito (2x com 10% de juros) "
-				+ "\n4 - Cartão de crédito (3x com 15% de juros) ");
-		opcao = leia.nextLine().toUpperCase().charAt(0);
-		while (opcao < 0 && opcao > 4) {
-			System.out.println("Digite uma opção de pagamento válida: ");
-			opcao = leia.nextLine().toUpperCase().charAt(0);
-		}
-		imposto = somaTotal * 0.09;
-		if (opcao == '1') {
-			somaTotal = somaTotal*0.9;
-			System.out.println("O valor da sua compra foi de R$ "+(somaTotal+imposto));
-		} else if (opcao == '2') {
-			System.out.println("O valor da sua compra foi de R$ "+(somaTotal+imposto));
-		} else if (opcao == '3') {
-			somaTotal = somaTotal*1.1;
-			System.out.println("O valor da sua compra foi de R$ "+(somaTotal+imposto)+", com parcelas de R$ "+(somaTotal+imposto)/2);
-		} else if (opcao == '4') {
-			somaTotal = somaTotal*1.15;
-			System.out.println("O valor da sua compra foi de R$ "+(somaTotal+imposto)+", com parcelas de R$ "+(somaTotal+imposto)/3);
-		}
-		
-		System.out.println("Deseja imprimir o cupom fiscal? [S/N]");
-		opcaoCupom = leia.nextLine().toUpperCase().charAt(0);
-		if(opcaoCupom == 'S') {
-			linha(40);
-			System.out.println(
-					"**************************************************************************************************************************************************");
-			System.out.println("LOJA BOA");
-			System.out.println("É BOA MESMO");
-			System.out.println(
-					"**************************************************************************************************************************************************");
-			System.out.println("Obrigada pela escolha da loja");
-			
-			
-
-			System.out.println(sexodaPessoa+" "+nomedaPessoa);
-			for (int i = 0; i < 10; i++) {
-				if (codigo[i].equals(mesmoCodigo[i])) {
-					System.out.println(
-							produtosnaloja[i] + "\t \t" + (novoEstoque[i] - estoque[i]) + "\t \t" + preconoproduto[i]);
-				}
-			}
-			System.out.println("O total a ser pago é R$"+(somaTotal+imposto));
-			System.out.println("O valor total em impostos é R$ "+imposto);
-			if (opcao == '1') {
-				System.out.println("Pagamento a vista");
-			} else if (opcao == '2') {
-				System.out.println("Pagamento a vista no cartão de crédito");
-			} else if (opcao == '3') {
-				System.out.println("Pagamento em 2x no cartão de crédito ");
-			} else if (opcao == '4') {
-				System.out.println("Pagamento em 3x no cartão de crédito ");
-			}
-			
-			
-		}
-		System.out.println("Você deseja sair para o menu inicial? [S/N]");
-		opcao = leia.nextLine().toUpperCase().charAt(0);
-		
-		}while(opcao != 'S');
 	}
 	
-	public static void linha(int tamanho) {
-        for (int x = 1; x < tamanho; x++) {
-            System.out.print("═");
-        }
-        System.out.println();
+	public double getPrecoProduto() {
+		return super.getPrecoProduto();
+	}
+	public void setPrecoProduto(double precoProduto) {
+		super.setPrecoProduto(precoProduto);
+	}
+	
+	
+	
+	
+	public String listarProdutos() {
+		StringBuilder lista = new StringBuilder();
+		lista.append("LISTA DE PRODUTOS\n\r");
+		lista.append("[CODIGO]\t[PREÇO]\t[QUANTIDADE]\t[NOME]\n\r");
+
+		for (Produto prod : this.listaProduto) {
+			lista.append(prod.getCodigo() + "\t\t" + prod.getPrecoProduto() + "\t" + prod.getEstoque() + "\t\t"
+					+ prod.getNomeProduto()+"\n\r");
+		}
+		return lista.toString();
+	}
+	
+	public void addProduto(Produto produto) {
+		listaProduto.add(produto);
 	}
 }
